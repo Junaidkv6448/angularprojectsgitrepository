@@ -1,0 +1,48 @@
+<div *ngIf="selectedProfessor">
+    <h2>
+        {{selectedProfessor.firstName|uppercase}} {{selectedProfessor.lastName|uppercase}} Details
+    </h2>
+    <div>
+        <table id="customers">
+            <tr>
+                <th><label>Professor Id</label></th>
+                <th><label>First name</label></th>
+                <th><label>Last Name</label></th>
+                <th><label>Department no</label></th>
+                <th><label>Salary</label></th>
+                <th><label>Joinig Date</label></th>
+                <th><label>Date of Birth</label></th>
+                <th><label>Gender</label></th>
+
+            </tr>
+            <tr>
+                <td>
+                    <label for="professorId">{{selectedProfessor.professorId}}</label>
+                </td>
+                <td>
+                    <label for="firstName"> {{selectedProfessor.firstName}} </label>
+                </td>
+                <td>
+                    <label for="lastName"> {{selectedProfessor.lastName}} </label>
+                </td>
+                <td>
+                    <label for="deptNo"> {{selectedProfessor.deptNo}} </label>
+                </td>
+                <td>
+                    <label for="salary"> {{selectedProfessor.salary}} </label>
+                </td>
+                <td>
+                    <label for="joiningDate"> {{selectedProfessor.joiningDate}} </label>
+                </td>
+                <td>
+                    <label for="dateOfBirth"> {{selectedProfessor.dateOfBirth}} </label>
+                </td>
+
+                <td>
+                    <label for="gernder"> {{selectedProfessor.gernder}} </label>
+                </td>
+            </tr>
+            <tr>
+        </table>
+    </div>
+</div>

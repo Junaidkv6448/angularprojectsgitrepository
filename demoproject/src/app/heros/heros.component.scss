@@ -1,0 +1,43 @@
+h1{background-color: white;}
+
+.heroslist{
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    padding: 0;
+    width: 15em;
+}
+.heroslist li{
+    cursor: pointer;
+    position: relative;
+    left:0;
+    background-color: darkcyan;
+    margin: .5em;
+    padding: .3em;
+    height: 1.9em;
+    border-radius: 6px;
+}
+.heroslist li :hover
+{
+    color: black;
+    background-color: yellow;
+    left:.1em;
+}
+.heroslist .badge{
+    display: inline-block;
+    font-size: small;
+    color: white;
+    background-color: black;
+    padding: 0.8em 0.7em 0 0.7em;
+    line-height: 1em;
+    position:relative;
+    left:-1px;
+    top:-4px;
+    height: 1.8em;
+    margin-right: .8em;
+    border-radius: 4px 0 0 4px;
+}
+.heroslist li.selected{
+    background-color: black;
+    color: blanchedalmond;
+
+}

@@ -1,0 +1,19 @@
+<div>
+    <h2> List of Professor</h2>
+    <ul class="Professorlist">
+        <li *ngFor="let professor of professorlist" (click)="onselect(professor) "
+            [class.selected]="professor===selectedProfessor">
+            <span class="badge">
+                {{professor.professorId}} 
+               <!-- {{professor.deptNo}}
+              {{professor.salary}} {{professor.joiningDate}} {{professor.dateOfBirth}} {{professor.gernder}}-->
+            </span>
+            {{professor.firstName}} {{professor.lastName}}
+
+        </li>
+    </ul>
+</div>
+
+
+
+<app-displayprofessordetails [selectedProfessor]="selectedProfessor"></app-displayprofessordetails>

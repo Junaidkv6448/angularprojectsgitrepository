@@ -1,0 +1,47 @@
+//h1{background-color: white;}
+
+.Professorlist{
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    padding: 0;
+    width: 15em;
+}
+.Professorlist li{
+    cursor: pointer;
+    position: relative;
+    left:0;
+    background-color: #099662;
+    color: white;
+    margin: .5em;
+    padding: .3em;
+    height: 1.9em;
+    border-radius: 6px;
+}
+.Professorlist li :hover
+{
+    color: black;
+    background-color: yellow;
+    left:.1em;
+}
+.Professorlist .badge{
+    display: inline-block;
+    font-size: small;
+    color: white;
+    background-color: rgb(170, 170, 170);
+    padding: 0.8em 0.7em 0 0.7em;
+    line-height: 1em;
+    position:relative;
+    left:-4px;
+    top:-4px;
+    height: 2.2em;
+    margin-right: .8em;
+    border-radius: 4px 0 0 4px;
+}
+.Professorlist li.selected{
+    background-color:cadetblue;
+    color: blanchedalmond;
+
+}
+table, th, td {
+    border: 1px solid black;
+  }
