@@ -1,0 +1,129 @@
+<form name="Profform" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+    <!--Professor id-->
+    <input type="hidden" name="ProfessorId" [ngModel]="profService.formData.ProfessorId" />
+
+    <!--First name-->
+    <div class="form-group">
+
+        <label>First Name</label>
+        <input name="FirstName" #FirstName="ngModel" [ngModel]="profService.formData.FirstName" class="form-control"
+            placeholder="Enter FirstName" minlength="3" maxlength="25" required
+            [ngClass]="{'is-invalid':FirstName.touched && FirstName.invalid}" />
+        <div class="validation-error" *ngIf="FirstName.touched && FirstName.invalid">
+
+            <div *ngIf="FirstName.errors.required">
+                First Name is required</div>
+        </div>
+    </div>
+    <!--Last name-->
+    <div class="form-group">
+
+        <label>Last Name</label>
+        <input name="LastName" #LastName="ngModel" [ngModel]="profService.formData.LastName" class="form-control"
+            placeholder="Enter Last Name" minlength="0" maxlength="25" required
+            [ngClass]="{'is-invalid':LastName.touched && LastName.invalid}" />
+        <div class="validation-error" *ngIf="LastName.touched && LastName.invalid">
+
+            <div *ngIf="LastName.errors.required">
+                Last Name is required</div>
+        </div>
+    </div>
+    <!--Department-->
+    <div class="form-group">
+
+        <label class="col-md-4">Department</label>
+
+        <select name="DeptNo" id="DeptNo" class="form-control" #DeptNo="ngModel" required
+            [(ngModel)]="profService.formData.DeptNo"
+            [ngClass]="{'is-invalid':DeptNo.touched && DeptNo.invalid}" 
+            >
+            <option value= disabled >Choose Department</option>
+            <option value=1>HR</option>
+            <option value=2>Administration</option>
+            <option value=3>IT</option>
+            <option value=4>Accounts</option>
+            <option value=6>Operations</option>
+
+        </select>
+        <div class="validation-error" *ngIf=" DeptNo.invalid">
+
+            <div *ngIf="DeptNo.errors.required">
+                Department is required</div>
+        </div>
+    </div>
+    <!--Salary-->
+    <div class="form-group">
+
+        <label>Salary</label>
+        <input type="number" name="Salary" #Salary="ngModel" [ngModel]="profService.formData.Salary"
+            class="form-control" placeholder="Enter Salary" required
+            [ngClass]="{'is-invalid':Salary.touched && Salary.invalid}" />
+        <div class="validation-error" *ngIf="Salary.touched && Salary.invalid">
+
+            <div *ngIf="Salary.errors.required">
+                Salary is required</div>
+        </div>
+    </div>
+    <!--JoiningDate-->
+    <div class="form-group">
+
+        <label>Date Of Joining</label>
+        <input type="date" name="JoiningDate" id="JoiningDate" #JoiningDate="ngModel"
+            [ngModel]="profService.formData.JoiningDate" class="form-control" required
+            [ngClass]="{'is-invalid':JoiningDate.touched && JoiningDate.invalid}" />
+        <div class="validation-error" *ngIf="JoiningDate.touched && JoiningDate.invalid">
+
+            <div *ngIf="JoiningDate.errors.required">
+                Date Of Joining is required</div>
+        </div>
+    </div>
+    <!--Date of birth-->
+    <div class="form-group">
+
+        <label>Date Of Birth</label>
+        <input type="date" name="DateOfBirth" id="DateOfBirth" #DateOfBirth="ngModel"
+            [ngModel]="profService.formData.DateOfBirth" class="form-control" required
+            [ngClass]="{'is-invalid':DateOfBirth.touched && DateOfBirth.invalid}" />
+        <div class="validation-error" *ngIf="DateOfBirth.touched && DateOfBirth.invalid">
+
+            <div *ngIf="JoiningDate.errors.required">
+                Date Of Joining is required</div>
+        </div>
+    </div>
+
+    <!--gender-->
+    <div class="form-group col-md-4">
+        <label for="Gender">Gender</label>
+        <br>
+        <label class="radio-inline">
+            <input type="radio" name="Gender" [(ngModel)]="profService.formData.Gender" value="Male" required
+                #Gender="ngModel">Male
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="Gender" [(ngModel)]="profService.formData.Gender" value="female" required>femail
+        </label>
+        <div class="validation-error" *ngIf=" Gender.invalid">
+
+            <div *ngIf="Gender.errors?.required">Gender is required</div>
+        </div>
+    </div>
+    <!--Is in Service-->
+    <div class="form-group">
+        <div class="form-check">
+            <label class="form-check-label">Is in Service </label>
+            <input type="checkbox" name="IsService" id="IsService" #IsService="ngModel"
+                [(ngModel)]="profService.formData.IsService" class="form-check-input">
+        </div>
+    </div>
+
+    <!--submit button-->
+    <br>
+    <div class="form-group">
+        <button type="submit" [disabled]="!(form.valid && form.dirty)"
+            class="btn btn-lg btn-primary form-control">Submit</button>
+    </div>
+
+
+
+
+</form>
