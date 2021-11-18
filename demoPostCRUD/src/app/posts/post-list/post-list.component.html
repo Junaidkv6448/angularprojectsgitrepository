@@ -1,1 +1,52 @@
-<p>post-list works!</p>
+<div class="container">
+    <div class="header">
+        <h5 class="text-center">
+            Posts Details
+        </h5>
+    </div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Posted Date
+                </th>
+                <th>
+                    Category
+                </th>
+
+                
+                <th>
+                    Action
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let postes of this.postService.posts">
+                <td>{{postes.PostId}}</td>
+                <td>{{postes.Title}}</td>
+                <td>{{postes.Description}}</td>
+                <td>{{postes.CreatedDate|date:'dd-MM-yyyy'}}</td>
+                <td>{{postes.CategoryId}}</td>
+                <td>
+                    <button class="btn btn-sm btn-outline-danger">Delete</button>&nbsp;
+                    <button class="btn btn-sm btn-info" style="margin-left:10px">Edit</button>
+                </td>
+
+            </tr>
+        </tbody>
+
+
+
+    </table>
+
+</div>

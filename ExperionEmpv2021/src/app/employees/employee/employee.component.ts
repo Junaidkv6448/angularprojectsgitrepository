@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { EmployeeService } from 'src/app/shared/employee.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { EmployeeService } from 'src/app/shared/employee.service';
 })
 export class EmployeeComponent implements OnInit {
 
-  constructor(public empService: EmployeeService) { }
+  constructor(public empService: EmployeeService,private toxterService: ToastrService) { }
 
   ngOnInit(): void {
 
@@ -26,8 +27,7 @@ export class EmployeeComponent implements OnInit {
 if(addId==0||addId==null)
 {
   this.insertEmployee(form);
-  //alert("inserted");
-
+  
 
 }
 //update
@@ -36,13 +36,6 @@ else{
   console.log("update");
 
 }
-
-
-
-
-   // alert("submitted");
-
-    //form.resetForm();
 
   }
 
@@ -63,9 +56,10 @@ insertEmployee(form?:NgForm)
     {
       console.log("result"+result);
       this.resetform(form);
-      //this.toxterService.success('Insert!', 'succes!');
+      this.toxterService.success('Employee details Inserted!', 'succes!');
     }
   );
+  window.location.reload();
 }
 //update employee
 }

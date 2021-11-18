@@ -1,1 +1,54 @@
-<p>employee-list works!</p>
+<div class="container">
+    <div class="header">
+        <h5 class="text-center">
+            Employee Details
+        </h5>
+    </div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Full Name
+                </th>
+                <th>
+                    Designation
+                </th>
+                <th>
+                    Join Date
+                </th>
+                <!--<th>
+                        Department
+                    </th>
+                    <th>
+                        Status
+                    </th>-->
+                <th>
+                    Action
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let emp of this.empService.employees">
+                <td>{{emp.EmployeeId}}</td>
+                <td>{{emp.EmployeeName}}</td>
+                <td>{{emp.Designation}}</td>
+                <td>{{emp.DateOfJoining|date:'dd-MM-yyyy'}}</td>
+                <!--<td>{{emp.DepartmentId}}</td>
+                    <td >{{emp.IsActive}}</td>-->
+                <td>
+                    <button class="btn btn-sm btn-outline-danger">Delete</button>&nbsp;
+                    <button class="btn btn-sm btn-info" style="margin-left:10px">Edit</button>
+                </td>
+
+            </tr>
+        </tbody>
+
+
+
+    </table>
+
+</div>

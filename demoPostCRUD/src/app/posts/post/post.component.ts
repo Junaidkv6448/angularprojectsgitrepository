@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from 'src/app/shared/post.service';
 import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { NgForm } from '@angular/forms';
 })
 export class PostComponent implements OnInit {
 
-  constructor(public postService:PostService ) { }
+  constructor(public postService:PostService ,private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.resetform();
@@ -63,9 +64,11 @@ insertPost(form?:NgForm)
     {
       console.log("result"+result);
       this.resetform(form);
+      this.toastr.success('post registered', 'Success!');
       
     }
   );
+  window.location.reload();
 }
 
 

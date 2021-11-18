@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PostService } from 'src/app/shared/post.service';
 
 @Component({
   selector: 'app-post-list',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostListComponent implements OnInit {
 
-  constructor() { }
+  constructor(public postService:PostService) { }
 
   ngOnInit(): void {
+
+    this.postService.bindPosts();
   }
+
+
 
 }

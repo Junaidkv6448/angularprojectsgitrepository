@@ -54,7 +54,7 @@
             <option value='' disabled>Choose Category</option>
             <option *ngFor="let cate of postService.categories" value="{{cate.Id}}">{{cate.Name}}</option>
             
-
+                                                                                                            
         </select>
         <div class="validation-error" *ngIf="CategoryId.touched && CategoryId.invalid">
 
