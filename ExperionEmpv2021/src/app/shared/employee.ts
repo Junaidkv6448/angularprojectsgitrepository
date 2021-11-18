@@ -3,7 +3,7 @@ export class Employee {
     EmployeeName:string='';
     Designation:string='';
     DateOfJoining:Date=new Date;
-    Department:string='';
+    DepartmentId:number;
     Contact:string='';
     IsActive:boolean=false;
 

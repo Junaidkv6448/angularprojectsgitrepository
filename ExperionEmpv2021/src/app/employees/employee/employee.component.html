@@ -44,21 +44,18 @@
     <!--Department-->
     <div class="form-group">
 
-        <label class="col-md-4">Department</label>
+        <label class="col-md-4">Department Id</label>
         
-        <select name="Department" id="Department" class="form-control" #Department="ngModel" required
-            [(ngModel)]="empService.formData.Department"
-            [ngClass]="{'is-invalid':DateOfJoining.touched && DateOfJoining.invalid}"
+        <select name="DepartmentId" id="DepartmentId" class="form-control" #DepartmentId="ngModel" required
+            [(ngModel)]="empService.formData.DepartmentId"
+            [ngClass]="{'is-invalid':DepartmentId.touched && DepartmentId.invalid}"
             >
-            <option value='' disabled>Choose Department</option>
-            <option value=1>HR</option>
-            <option value=2>Administration</option>
-            <option value=3>IT</option>
-            <option value=4>Accounts</option>
-            <option value=6>Operations</option>
+            <option value=0 disabled>Choose Department</option>
+            <option *ngFor="let dept of empService.departments" value="{{dept.DepartmentId}}">{{dept.DepartmentName}}</option>
+            
 
         </select>
-        <div class="validation-error" *ngIf="Department.touched && Department.invalid">
+        <div class="validation-error" *ngIf="DepartmentId.touched && DepartmentId.invalid">
 
             <div *ngIf="Department.errors.required">
                 Department is required</div>
