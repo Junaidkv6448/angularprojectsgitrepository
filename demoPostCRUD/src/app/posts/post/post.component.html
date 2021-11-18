@@ -1,1 +1,77 @@
-<p>post works!</p>
+<form name="empform" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+    <!--post id-->
+    <input type="hidden" name="PostId" [ngModel]="postService.formData.PostId" />
+
+    <!--Title-->
+    <div class="form-group">
+
+        <label>Title</label>
+        <input name="Title" #Title="ngModel" [ngModel]="postService.formData.Title"
+            class="form-control" placeholder="Enter Title" minlength="5" maxlength="25" required
+            [ngClass]="{'is-invalid':Title.touched && Title.invalid}" />
+        <div class="validation-error" *ngIf="Title.touched && Title.invalid">
+
+            <div *ngIf="Title.errors.required">
+                Title is required</div>
+        </div>
+    </div>
+    <!--Description-->
+    <div class="form-group">
+
+        <label>Description</label>
+        <textarea name="Description" #Description="ngModel" [ngModel]="postService.formData.Description"
+            class="form-control" placeholder="Enter Description" minlength="10" maxlength="25" required
+            [ngClass]="{'is-invalid':Description.touched && Description.invalid}" ></textarea>
+        <div class="validation-error" *ngIf="Description.touched && Description.invalid">
+
+            <div *ngIf="Description.errors.required">
+                Description is required</div>
+        </div>
+    </div>
+    <!--CreatedDate-->
+  <div class="form-group" hidden>
+
+        <label>Created Date</label>
+        <input type="date" name="CreatedDate" id="CreatedDate" #CreatedDate="ngModel"
+            [ngModel]="postService.formData.CreatedDate" class="form-control" required
+            [ngClass]="{'is-invalid':CreatedDate.touched && CreatedDate.invalid}" />
+        <div class="validation-error" *ngIf="CreatedDate.touched && CreatedDate.invalid">
+
+            <div *ngIf="CreatedDate.errors.required">
+                CreatedDate is required</div>
+        </div>
+    </div>
+
+    <!--Category-->
+    <div class="form-group">
+
+        <label class="col-md-4">Category</label>
+        
+        <select name="CategoryId" id="CategoryId" class="form-control" #CategoryId="ngModel" required
+            [(ngModel)]="postService.formData.CategoryId"
+            [ngClass]="{'is-invalid':CategoryId.touched && CategoryId.invalid}"
+            >
+            <option value='' disabled>Choose Category</option>
+            <option *ngFor="let cate of postService.categories" value="{{cate.Id}}">{{cate.Name}}</option>
+            
+
+        </select>
+        <div class="validation-error" *ngIf="CategoryId.touched && CategoryId.invalid">
+
+            <div *ngIf="CategoryId.errors.required">
+                Category is required</div>
+        </div>
+    </div>
+
+  
+    <!--submit button-->
+    <br>
+    <div class="form-group">
+        <button type="submit" [disabled]="!(form.valid && form.dirty)"
+            class="btn btn-lg btn-primary form-control">Submit</button>
+    </div>
+
+
+
+
+</form>
