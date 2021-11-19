@@ -12,6 +12,8 @@ import {PostService} from "./shared/post.service";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgxPaginationModule, //installed by npm install ngx-pagination --save
+    Ng2SearchPipeModule  // installed by npm install ng2-search-filter --save
 
   ],
   providers: [

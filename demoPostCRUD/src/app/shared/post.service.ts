@@ -32,8 +32,28 @@ export class PostService {
   //insert Post
 insertPost(post:Post):Observable<any>
 {
+ // post.CreatedDate=new Date("yyyy-MM-dd");
+ console.log("insert....."+post.CreatedDate);
   return this.httpClient.post(environment.apiUrl+"api/Post/addPost",post);
 
 }
+
+//update post
+
+updatePost(post:Post):Observable<any>
+{
+  return this.httpClient.put(environment.apiUrl+"api/post/updatePost",post);
+
+}
+
+//delete post
+
+deletePost(PostId:number):Observable<any>
+{
+  return this.httpClient.delete(environment.apiUrl+"api/post/DeletePost?id="+PostId);
+
+}
+
+
 
 }

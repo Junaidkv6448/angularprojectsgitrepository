@@ -1,5 +1,5 @@
 export class Category {
-    Id:number=0;
+    Id:number;
     Name:string='';
      Slug:string='';
 }

@@ -7,7 +7,7 @@
 
         <label>Full Name</label>
         <input name="EmployeeName" #EmployeeName="ngModel" [ngModel]="empService.formData.EmployeeName"
-            class="form-control" placeholder="Enter full name" minlength="10" maxlength="25" required
+            class="form-control" placeholder="Enter full name" minlength="5" maxlength="25" required
             [ngClass]="{'is-invalid':EmployeeName.touched && EmployeeName.invalid}" />
         <div class="validation-error" *ngIf="EmployeeName.touched && EmployeeName.invalid">
 

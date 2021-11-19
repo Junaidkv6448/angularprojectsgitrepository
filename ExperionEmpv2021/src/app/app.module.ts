@@ -12,6 +12,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { EditemployeeComponent } from './employees/editemployee/editemployee.component';
 
 
 
@@ -21,7 +24,8 @@ import { ToastrModule } from 'ngx-toastr';
     AppComponent,
     EmployeesComponent,
     EmployeeComponent,
-    EmployeeListComponent
+    EmployeeListComponent,
+    EditemployeeComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,9 @@ import { ToastrModule } from 'ngx-toastr';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule, // required animations module
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgxPaginationModule,//installed by npm install ngx-pagination --save
+    Ng2SearchPipeModule// installed by npm install ng2-search-filter --save
   ],
   providers: [
     EmployeeService

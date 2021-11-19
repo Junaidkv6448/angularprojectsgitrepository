@@ -27,13 +27,16 @@ export class EmployeeComponent implements OnInit {
 if(addId==0||addId==null)
 {
   this.insertEmployee(form);
+
+  window.location.reload();
   
 
 }
 //update
 else{
 
-  console.log("update");
+  
+  this.updateEmployee(form);
 
 }
 
@@ -58,8 +61,31 @@ insertEmployee(form?:NgForm)
       this.resetform(form);
       this.toxterService.success('Employee details Inserted!', 'succes!');
     }
+    ,(error)=>{
+      this.toxterService.error('unexxpected error occured!', 'Eroro!');
+    }
   );
-  window.location.reload();
+  
 }
 //update employee
+updateEmployee(form?:NgForm)
+{
+  console.log("updating employee...")
+  this.empService.updateEmployee(form.value).subscribe(
+    (result)=>
+    {
+      console.log("result"+result);
+      this.resetform(form);
+      this.toxterService.info('Employee details updated!', 'succes!');
+      this.empService.bindEmployee();
+    },(error)=>{
+      this.toxterService.error('unexxpected error occured!', 'Eroro!');
+    }
+  );
+  
+}
+
+
+
+
 }

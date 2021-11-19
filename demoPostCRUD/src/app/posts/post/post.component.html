@@ -1,9 +1,16 @@
+
+<h5 class="text-center">
+    Post registartion
+</h5>
+<br>
+
+<div class="shadow-sm p-2 mb-9 bg-white rounded ">
 <form name="empform" #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
     <!--post id-->
     <input type="hidden" name="PostId" [ngModel]="postService.formData.PostId" />
 
     <!--Title-->
-    <div class="form-group">
+    <div class="form-group ">
 
         <label>Title</label>
         <input name="Title" #Title="ngModel" [ngModel]="postService.formData.Title"
@@ -29,7 +36,7 @@
         </div>
     </div>
     <!--CreatedDate-->
-  <div class="form-group" hidden>
+ <div class="form-group" >
 
         <label>Created Date</label>
         <input type="date" name="CreatedDate" id="CreatedDate" #CreatedDate="ngModel"
@@ -41,6 +48,7 @@
                 CreatedDate is required</div>
         </div>
     </div>
+    
 
     <!--Category-->
     <div class="form-group">
@@ -75,3 +83,4 @@
 
 
 </form>
+</div>

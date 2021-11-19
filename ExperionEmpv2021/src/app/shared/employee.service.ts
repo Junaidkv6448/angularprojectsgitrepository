@@ -47,7 +47,7 @@ updateEmployee(employee:Employee):Observable<any>
 //delete employee
 deleteEmployee(employeeId:number):Observable<any>
 {
-  return this.httpClient.delete(environment.apiUrl+"api/emp/deleteEmployee?id="+employeeId);
+  return this.httpClient.delete(environment.apiUrl+"api/emp/DeleteEmployee?id="+employeeId);
 
 }
 

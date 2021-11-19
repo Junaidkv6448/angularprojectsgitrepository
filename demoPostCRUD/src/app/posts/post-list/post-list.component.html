@@ -1,11 +1,15 @@
-<div class="container">
+<div >
     <div class="header">
         <h5 class="text-center">
             Posts Details
         </h5>
+         <!--Search functionality-->
+         <div class="form-group">
+            <input class="form-control" type="text" placeholder="Search .." [(ngModel)]="filter">
+        </div>
     </div>
-    <table class="table table-bordered table-striped">
-        <thead>
+    <table class=" shadow rounded table table-bordered table-hover table-striped">
+        <thead >
             <tr>
                 <th>
                     ID
@@ -31,15 +35,15 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let postes of this.postService.posts">
+            <tr *ngFor="let postes of this.postService.posts| filter: filter | paginate: {itemsPerPage:5,currentPage:page}">
                 <td>{{postes.PostId}}</td>
                 <td>{{postes.Title}}</td>
                 <td>{{postes.Description}}</td>
                 <td>{{postes.CreatedDate|date:'dd-MM-yyyy'}}</td>
                 <td>{{postes.CategoryId}}</td>
                 <td>
-                    <button class="btn btn-sm btn-outline-danger">Delete</button>&nbsp;
-                    <button class="btn btn-sm btn-info" style="margin-left:10px">Edit</button>
+                    <button (click)="deletePost(postes)" class="btn btn-sm btn-outline-danger">Delete</button>&nbsp;
+                    <button (click)="PopulateForm(postes)" class="btn btn-sm btn-info" style="margin-left:10px">Edit</button>
                 </td>
 
             </tr>
@@ -48,5 +52,11 @@
 
 
     </table>
+
+    <div class="footer">
+        <!--pagination - control-->
+
+        <pagination-controls (pageChange)="page=($event)"></pagination-controls>
+    </div>
 
 </div>

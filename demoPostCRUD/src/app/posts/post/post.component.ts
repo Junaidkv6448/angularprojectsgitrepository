@@ -32,13 +32,20 @@ if(addId==0||addId==null)
 {
   this.insertPost(form);
   //alert("inserted");
+ window.location.reload();
+
 
 
 }
 //update
 else{
 
-  console.log("update");
+  //console.log("update");
+
+ this.updatePost(form);
+
+
+ window.location.reload();
 
 }
 
@@ -66,9 +73,35 @@ insertPost(form?:NgForm)
       this.resetform(form);
       this.toastr.success('post registered', 'Success!');
       
+    },
+    (error)=>{
+      this.toastr.error('unexxpected error occured!', 'Eroro!');
     }
   );
-  window.location.reload();
+  
+ 
+}
+
+//update post
+
+//update employee
+updatePost(form?:NgForm)
+{
+  console.log("updating Post...")
+  this.postService.updatePost(form.value).subscribe(
+    (result)=>
+    {
+      console.log("result"+result);
+      this.resetform(form);
+      this.toastr.info('post details updated!', 'succes!');
+      
+      
+    },(error)=>{
+      this.toastr.error('unexxpected error occured!', 'Eroro!');
+    }
+  );
+  
+  
 }
 
 
