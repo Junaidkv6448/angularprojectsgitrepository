@@ -1,5 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Post } from 'src/app/shared/post';
 import { PostService } from 'src/app/shared/post.service';
@@ -13,7 +14,7 @@ export class PostListComponent implements OnInit {
 
   page:number=0;
   filter:string;
-  constructor(public postService:PostService,private toxterService: ToastrService) { }
+  constructor(public postService:PostService,private toxterService: ToastrService,private router: Router) { }
 
   ngOnInit(): void {
 
@@ -35,7 +36,11 @@ export class PostListComponent implements OnInit {
 
   }
 
+  updatepost(postId: number) {
+    console.log(postId);
+    this.router.navigate(['post',postId])
 
+  }
 
   deletePost(pos:Post)
   {

@@ -13,9 +13,6 @@ export class EmployeesComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  upemp(form:NgForm)
-  {
-    
-  }
+  
 
 }

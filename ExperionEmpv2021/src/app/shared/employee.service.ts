@@ -55,7 +55,7 @@ deleteEmployee(employeeId:number):Observable<any>
 //get employee by id
 getEmployeeById(employeeId:number):Observable<any>
 {
-  return this.httpClient.delete(environment.apiUrl+"api/emp/GetEmployeeById?id="+employeeId);
+  return this.httpClient.get(environment.apiUrl+"api/emp/GetEmployeeById?id="+employeeId);
 
 }
 

@@ -38,7 +38,8 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let emp of this.empService.employees| filter: filter | paginate: {itemsPerPage:5,currentPage:page}">
+            <tr
+                *ngFor="let emp of this.empService.employees| filter: filter | paginate: {itemsPerPage:5,currentPage:page}">
                 <td>{{emp.EmployeeId}}</td>
                 <td>{{emp.EmployeeName}}</td>
                 <td>{{emp.Designation}}</td>
@@ -47,11 +48,11 @@
                     <td >{{emp.IsActive}}</td>-->
                 <td>
                     <button (click)="deleteform(emp)" class="btn btn-sm btn-outline-danger">Delete</button>&nbsp;
-                   <button (click)="populateform(emp)" class="btn btn-sm btn-info"
+                    <button (click)="populateform(emp)" class="btn btn-sm btn-info"
                         style="margin-left:10px">Edit</button>
 
-                        <!--<button (click)="upemp(emp)" class="btn btn-sm btn-info"
-                        style="margin-left:10px">Edit</button>-->
+                    <button (click)="upemp(emp.EmployeeId)" class="btn btn-sm btn-info"
+                        style="margin-left:10px">Edit</button>
                 </td>
 
             </tr>

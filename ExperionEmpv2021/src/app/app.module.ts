@@ -7,7 +7,7 @@ import { EmployeesComponent } from './employees/employees.component';
 import { EmployeeComponent } from './employees/employee/employee.component';
 import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
 import{EmployeeService} from './shared/employee.service'
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -15,6 +15,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { EditemployeeComponent } from './employees/editemployee/editemployee.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 
@@ -25,7 +26,8 @@ import { EditemployeeComponent } from './employees/editemployee/editemployee.com
     EmployeesComponent,
     EmployeeComponent,
     EmployeeListComponent,
-    EditemployeeComponent
+    EditemployeeComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import { EditemployeeComponent } from './employees/editemployee/editemployee.com
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
     NgxPaginationModule,//installed by npm install ngx-pagination --save
-    Ng2SearchPipeModule// installed by npm install ng2-search-filter --save
+    Ng2SearchPipeModule,// installed by npm install ng2-search-filter --save
+    ReactiveFormsModule
   ],
   providers: [
     EmployeeService

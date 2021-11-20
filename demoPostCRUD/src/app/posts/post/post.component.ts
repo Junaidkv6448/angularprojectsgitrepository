@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { PostService } from 'src/app/shared/post.service';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Post } from 'src/app/shared/post';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -11,14 +14,39 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class PostComponent implements OnInit {
 
-  constructor(public postService:PostService ,private toastr: ToastrService) { }
+  postId:number;
+  post:Post=new Post();
+  constructor(public postService:PostService ,private toastr: ToastrService,private router: Router
+    ,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+
+    this.postId=this.route.snapshot.params['postId'];
     this.resetform();
     this.postService.bindCategories();
     console.log(this.postService.categories)
+
+
+
+    console.log("postID: " + this.postId)
+    if (this.postId != 0 || this.postId != null) {
+      this.postService.getpostbyId(this.postId).subscribe(data => {
+        console.log(data);
+
+        var datepipe = new DatePipe("en-UK");
+        let formatedDate: any = datepipe.transform(data.DateOfJoining, "dd-mm-yyyy");
+        //data.DateOfJoining = formatedDate;
+        this.postService.formData = data;
+        this.postService.formData = Object.assign({}, data);
+      });
+    }
+
+
+
   }
 
+
+  
 
 
 

@@ -46,6 +46,17 @@ updatePost(post:Post):Observable<any>
 
 }
 
+
+//get  post  by id
+
+getpostbyId(PostId:number):Observable<any>
+{
+  return this.httpClient.get(environment.apiUrl+"api/post/Getpostbyid?id="+PostId);
+
+}
+
+
+
 //delete post
 
 deletePost(PostId:number):Observable<any>

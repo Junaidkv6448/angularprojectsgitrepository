@@ -7,6 +7,7 @@
          <div class="form-group">
             <input class="form-control" type="text" placeholder="Search .." [(ngModel)]="filter">
         </div>
+        <a [routerLink]="['post']" class="btn btn-primary"> Add Post </a>
     </div>
     <table class=" shadow rounded table table-bordered table-hover table-striped">
         <thead >
@@ -44,6 +45,7 @@
                 <td>
                     <button (click)="deletePost(postes)" class="btn btn-sm btn-outline-danger">Delete</button>&nbsp;
                     <button (click)="PopulateForm(postes)" class="btn btn-sm btn-info" style="margin-left:10px">Edit</button>
+                    <button (click)="updatepost(postes.PostId)" class="btn btn-sm btn-info" style="margin-left:10px">Edit</button>
                 </td>
 
             </tr>
