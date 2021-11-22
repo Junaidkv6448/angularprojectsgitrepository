@@ -16,6 +16,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { EditemployeeComponent } from './employees/editemployee/editemployee.component';
 import { ContactComponent } from './contact/contact.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import{AuthService}from"./shared/auth.service"
 
 
 
@@ -27,7 +30,9 @@ import { ContactComponent } from './contact/contact.component';
     EmployeeComponent,
     EmployeeListComponent,
     EditemployeeComponent,
-    ContactComponent
+    ContactComponent,
+    HomeComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -38,10 +43,12 @@ import { ContactComponent } from './contact/contact.component';
     ToastrModule.forRoot(),
     NgxPaginationModule,//installed by npm install ngx-pagination --save
     Ng2SearchPipeModule,// installed by npm install ng2-search-filter --save
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ],
   providers: [
-    EmployeeService
+    EmployeeService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
