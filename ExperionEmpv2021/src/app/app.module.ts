@@ -18,7 +18,10 @@ import { EditemployeeComponent } from './employees/editemployee/editemployee.com
 import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import{AuthService}from"./shared/auth.service"
+import{AuthService}from"./shared/auth.service";
+import { AdminComponent } from './admin/admin.component';
+import { ManagerComponent } from './manager/manager.component'
+import{AuthGuard} from"./shared/auth.guard"
 
 
 
@@ -32,7 +35,9 @@ import{AuthService}from"./shared/auth.service"
     EditemployeeComponent,
     ContactComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    AdminComponent,
+    ManagerComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +53,8 @@ import{AuthService}from"./shared/auth.service"
   ],
   providers: [
     EmployeeService,
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

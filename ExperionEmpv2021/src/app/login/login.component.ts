@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { User } from "../shared/user";
 import { AuthService } from '../shared/auth.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -46,10 +47,7 @@ export class LoginComponent implements OnInit {
 
     if (this.loginForm.invalid)
       return;
-
-
-    //valid 
-
+    //valid
     if (this.loginForm.valid) {
 
       //calling method from Authservice 
@@ -61,13 +59,23 @@ export class LoginComponent implements OnInit {
           if(data.RoleId===1)
           {
             //logged as admin
-            console.log("admin")
+            console.log("admin");
+            localStorage.setItem("username",data.UserName);
+          sessionStorage.setItem("username",data.UserName);
+          localStorage.setItem("Access_Role",data.RoleId.toString());
+            this.router.navigateByUrl("/admin");
           }
           else if(data.RoleId===2){
             console.log("manager")
+            sessionStorage.setItem("username",data.UserName);
+            localStorage.setItem("Access_Role",data.RoleId.toString());
+            this.router.navigateByUrl("/manager");
           }
           else if(data.RoleId===3){
-            console.log("user")
+            console.log("user");
+            sessionStorage.setItem("username",data.UserName);
+            localStorage.setItem("Access_Role",data.RoleId.toString());
+            this.router.navigateByUrl("/user");
           }
           else{
             this.error="Sorry .. invalid authorization"
@@ -78,21 +86,10 @@ export class LoginComponent implements OnInit {
           this.error="invalid"
         }
         )
-        
-        
-
       //check the role
 
       //based on role redirect out application
     }
-
-
-
-
-
   }
-
-
-
-
+ 
 }

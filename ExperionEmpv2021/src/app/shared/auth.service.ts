@@ -5,6 +5,11 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { User } from './user';
 
+
+
+// ahave to use 'ng g guard shared/auth' for creation
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -20,6 +25,13 @@ export class AuthService {
     console.log("password : "+user.Userpassword);
    return this.httpClient.get(environment.apiUrl+"api/login/getuser/"+user.UserName+"/"+user.Userpassword);
 
+  }
+
+  public LogOut()
+  {
+    //localStorage.remove('username');
+    localStorage.clear();
+    sessionStorage.clear()
   }
 
 
