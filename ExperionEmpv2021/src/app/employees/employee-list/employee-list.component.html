@@ -39,7 +39,7 @@
         </thead>
         <tbody>
             <tr
-                *ngFor="let emp of this.empService.employees| filter: filter | paginate: {itemsPerPage:5,currentPage:page}">
+                *ngFor="let emp of this.empService.employees | filter: filter | paginate: {itemsPerPage:4,currentPage:page}">
                 <td>{{emp.EmployeeId}}</td>
                 <td>{{emp.EmployeeName}}</td>
                 <td>{{emp.Designation}}</td>

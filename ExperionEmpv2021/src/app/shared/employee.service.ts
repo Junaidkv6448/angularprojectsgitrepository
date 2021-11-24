@@ -11,9 +11,9 @@ import { Observable } from 'rxjs';
 export class EmployeeService {
 
   //create an instance of employee
-  formData:Employee=new Employee();
-  departments:Department[];
-  employees:Employee[];
+  formData:Employee=new Employee();//value passing
+  departments:Department[];//drop drown population
+  employees:Employee[];//list population
   constructor(private httpClient:HttpClient) { }
 
 bindCmdDepartment(){
@@ -22,6 +22,7 @@ bindCmdDepartment(){
     this.departments=response as Department[])
 
 }
+
 bindEmployee(){
   this.httpClient.get(environment.apiUrl+"api/emp/GetAllEmployee")
   .toPromise().then(response=>

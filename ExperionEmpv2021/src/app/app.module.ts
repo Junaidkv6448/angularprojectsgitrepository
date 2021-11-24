@@ -8,7 +8,7 @@ import { EmployeeComponent } from './employees/employee/employee.component';
 import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
 import{EmployeeService} from './shared/employee.service'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from 'ngx-toastr';
@@ -20,8 +20,10 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import{AuthService}from"./shared/auth.service";
 import { AdminComponent } from './admin/admin.component';
-import { ManagerComponent } from './manager/manager.component'
-import{AuthGuard} from"./shared/auth.guard"
+import { ManagerComponent } from './manager/manager.component';
+import{AuthGuard} from"./shared/auth.guard";
+import{TokenInterceptorService} from"./shared/token-interceptor.service"
+
 
 
 
@@ -54,7 +56,12 @@ import{AuthGuard} from"./shared/auth.guard"
   providers: [
     EmployeeService,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:TokenInterceptorService,
+      multi:true
+    }
   ],
   bootstrap: [AppComponent]
 })

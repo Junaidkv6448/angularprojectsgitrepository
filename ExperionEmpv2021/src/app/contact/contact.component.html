@@ -11,6 +11,7 @@
                 class="form-control">
             </p>
         </div>
+
         <div *ngIf="isSubmitted && formControls.firstName.errors">
 
             <div *ngIf="formControls.firstName.errors.required"
@@ -20,6 +21,7 @@
             First Name is required
 
         </div>
+        
 
         </div>
 
@@ -103,13 +105,6 @@
                 </p>
             </div>
 
-            <div *ngIf="isSubmitted && formControls.contactForm.errors">
-
-                <div *ngIf=" contactForm.controls['address'].controls['street'].errors.required" style="color: red;float: right;">
-    
-                    Street is required</div>
-    
-            </div>
 
            
 

@@ -26,6 +26,13 @@ export class AuthService {
    return this.httpClient.get(environment.apiUrl+"api/login/getuser/"+user.UserName+"/"+user.Userpassword);
 
   }
+  getTokenByPassword(user:User):Observable<any>{
+
+    console.log("Token generation")
+    
+   return this.httpClient.get(environment.apiUrl+"api/login/"+user.UserName+"/"+user.Userpassword);
+
+  }
 
   public LogOut()
   {

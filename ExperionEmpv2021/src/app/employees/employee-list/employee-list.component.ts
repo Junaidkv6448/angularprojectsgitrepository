@@ -20,7 +20,9 @@ export class EmployeeListComponent implements OnInit {
   constructor(public empService: EmployeeService, private toxterService: ToastrService, private router: Router) { }
 
   ngOnInit(): void {
+
     this.empService.bindEmployee();
+    
   }
 
   //populate form

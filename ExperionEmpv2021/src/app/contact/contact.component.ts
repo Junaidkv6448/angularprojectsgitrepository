@@ -10,7 +10,9 @@ export class ContactComponent implements OnInit {
 
   
   isSubmitted=false;
+
   contactForm!: FormGroup;
+
   countries: any = ['India', 'Pakistan', 'Afganinstan', 'Nepal']
 
   constructor(private formBuilder: FormBuilder) { }
@@ -42,6 +44,9 @@ export class ContactComponent implements OnInit {
     return this.contactForm.controls;
   }
 
+
+
+
   public handleError = (controlName: string, errorName: string) => {
     return this.contactForm.controls[controlName].hasError(errorName);
   }
@@ -52,6 +57,7 @@ export class ContactComponent implements OnInit {
   }
   onSubmit() {
     this.isSubmitted=true;
+    
     console.log(this.contactForm.value);
     //alert(JSON.stringify(this.contactForm.value))
 
